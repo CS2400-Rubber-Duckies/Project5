@@ -54,8 +54,9 @@ if(adjMat[v][j]==1 && vertexList[j].wasVisited==false)
 
 
 return j;
-return -1;
+//return -1;
 }
+return -1;
 
 }
 }
