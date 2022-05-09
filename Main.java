@@ -1,6 +1,6 @@
 
 class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Graph theGraph = new Graph();
         theGraph.addVertex('A');// (start for dfs)
         theGraph.addVertex('B');// 1
@@ -24,8 +24,10 @@ class Main {
         theGraph.addEdge(6, 7);
         theGraph.addEdge(7, 8);
         theGraph.addEdge(8, 5);
-        System.out.print("Visits: ");
-        theGraph.dfs();
+        System.out.print("The Depth-First Traversal is: ");
+        // theGraph.dfs(8);
+        System.out.println("The Breadth First Traversal is: ");
+        theGraph.bfs();
 
         System.out.println();
     }
