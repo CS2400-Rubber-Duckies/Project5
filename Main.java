@@ -24,11 +24,11 @@ class Main {
         theGraph.addEdge(6, 7);
         theGraph.addEdge(7, 8);
         theGraph.addEdge(8, 5);
-        System.out.print("The Depth-First Traversal is: ");
+        System.out.println("The Depth-First Traversal is: ");
         theGraph.dfs(0);
+        System.out.println();
         System.out.println("The Breadth First Traversal is: ");
         theGraph.bfs(0); // starting at vertex 0
 
-        System.out.println();
     }
 }

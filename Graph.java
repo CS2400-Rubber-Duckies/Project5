@@ -1,15 +1,15 @@
 import java.util.*;
 
 class Graph {
-    private final int MAX_VERTS = 700;
+    // private final int MAX_VERTS = 700;
     private Vertex vertexList[];
-    private int adjMat[][];
+    // private int adjMat[][];
 
     private int nVerts; // current number of vertices
     private LinkedList<Integer> adjacencyList[];
     private Queue<Integer> queue;
 
-    private StackX theStack;
+    // private StackX theStack;
 
     // public Graph() {
     // // constructor
@@ -79,23 +79,29 @@ class Graph {
 
     // }
 
-    public void dfs(int n) throws Exception {
+    public void dfs(int n) {
         Stack<Integer> stack = new Stack<Integer>();
-        boolean visitedNodes[] = new boolean[nVerts];
+        Vector<Boolean> visitedNodes = new Vector<Boolean>(nVerts);
+        for (int i = 0; i < nVerts; i++) {
+            visitedNodes.add(false);
+        }
 
         stack.push(n);
-        while (!stack.isEmpty()) {
-            n = stack.pop();
-            if (visitedNodes[n]) {
-                continue;
-            }
-            visitedNodes[n] = true;
-            System.out.print(n + " ");
 
-            for (int i = (adjacencyList.length - 1); i > 0; i--) {
-                int element = adjacencyList[n].get(i);
-                if (!visitedNodes[n]) {
-                    stack.push(element);
+        while (!stack.isEmpty()) {
+            n = stack.peek();
+            stack.pop();
+            if (visitedNodes.get(n) == false) {
+                System.out.print(n + " ");
+                visitedNodes.set(n, true);
+            }
+
+            Iterator<Integer> iterator = adjacencyList[n].iterator();
+
+            while (iterator.hasNext()) {
+                int vertex = iterator.next();
+                if (!visitedNodes.get(vertex)) {
+                    stack.push(vertex);
                 }
             }
 
