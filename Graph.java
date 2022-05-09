@@ -3,32 +3,42 @@ import java.util.*;
 class Graph {
     private final int MAX_VERTS = 700;
     private Vertex vertexList[];
-    private LinkedList<Integer> adjacencyList[];
     private int adjMat[][];
-    private int nVerts;
-    // current number of vertices
+
+    private int nVerts; // current number of vertices
+    private LinkedList<Integer> adjacencyList[];
+    private Queue<Integer> queue;
+
     private StackX theStack;
 
-    public Graph() {
-        // constructor
-        vertexList = new Vertex[MAX_VERTS];
-        // adjacency matrix
-        adjMat = new int[MAX_VERTS][MAX_VERTS];
-        nVerts = 0;
-        for (int y = 0; y < MAX_VERTS; y++) // set adjacency
-            for (int x = 0; x < MAX_VERTS; x++) // matrix to 0
-                adjMat[x][y] = 0;
-        theStack = new StackX();
-    }
-    // end constructor
+    // public Graph() {
+    // // constructor
+    // vertexList = new Vertex[MAX_VERTS];
+    // // adjacency matrix
+    // adjMat = new int[MAX_VERTS][MAX_VERTS];
+    // nVerts = 0;
+    // for (int y = 0; y < MAX_VERTS; y++) // set adjacency
+    // for (int x = 0; x < MAX_VERTS; x++) // matrix to 0
+    // adjMat[x][y] = 0;
+    // theStack = new StackX();
+    // }
+    // // end constructor
 
-    public void addVertex(char lab) {
-        vertexList[nVerts++] = new Vertex(lab);
+    public Graph(int vertex) {
+        nVerts = vertex;
+        adjacencyList = new LinkedList[vertex];
+        for (int i = 0; i < vertex; i++) {
+            adjacencyList[i] = new LinkedList<>();
+        }
+        queue = new LinkedList<Integer>();
     }
+
+    // public void addVertex(char lab) {
+    // vertexList[nVerts++] = new Vertex(lab);
+    // }
 
     public void addEdge(int start, int end) {
-        adjMat[start][end] = 1;
-        adjMat[end][start] = 1;
+        adjacencyList[start].add(end);
     }
 
     public void displayVertex(int v) {
@@ -92,13 +102,15 @@ class Graph {
         }
     }
 
-    public void bfs(int n) { // breadth-first search
+    public void bfs(int n) throws NullPointerException { // breadth-first search
+
         boolean visitedNodes[] = new boolean[nVerts]; // initialize array to hold data
-        LinkedList<Integer> queue = new LinkedList<Integer>(); // create queue to implement bfs
+        // LinkedList<Integer> queue = new LinkedList<Integer>(); // create queue to
+        // implement bfs
         visitedNodes[n] = true;
         int element = 0;
-
         queue.add(n); // add root node n to top of queue
+
         while (queue.size() != 0) { // while the queue is not empty
             n = queue.poll(); // remove top of queue (dequeue)
             System.out.print(n + " "); // print top of queue
