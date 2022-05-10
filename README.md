@@ -12,3 +12,4 @@ Additional Features:
 - Java interface and generic data types
 - Adjacency List
 - Screencast
+- We tried to implement the adjacency matrix ;-;
