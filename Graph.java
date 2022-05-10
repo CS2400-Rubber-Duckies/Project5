@@ -23,7 +23,7 @@ class Graph {
     // theStack = new StackX();
     // }
     // // end constructor
-
+    @SuppressWarnings("unchecked")
     public Graph(int vertex) {
         nVerts = vertex;
         adjacencyList = new LinkedList[vertex];
