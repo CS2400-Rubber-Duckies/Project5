@@ -111,7 +111,7 @@ class Graph {
     public void bfs(int n) throws NullPointerException { // breadth-first search
 
         boolean visitedNodes[] = new boolean[nVerts]; // initialize array to hold data
-        // LinkedList<Integer> queue = new LinkedList<Integer>(); // create queue to
+        // LinkedList<Integer> queue = new LinkedList<Integer>(); // create queue
         // implement bfs
         visitedNodes[n] = true;
         int element = 0;

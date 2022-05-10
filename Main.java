@@ -27,7 +27,7 @@ class Main {
         System.out.println("The Depth-First Traversal is: ");
         theGraph.dfs(0);
         System.out.println();
-        System.out.println("The Breadth First Traversal is: ");
+        System.out.println("The Breadth-First Traversal is: ");
         theGraph.bfs(0); // starting at vertex 0
 
     }
